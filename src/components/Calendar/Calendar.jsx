@@ -1,49 +1,39 @@
 import React from 'react'
 import moment from 'moment'
 import styled from 'styled-components';
-
 import './Calendar.css'
 
-const GridWrapper = styled.div`
-    font-size:40px;
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(6, 1fr);
-    grid-gap:1px;
-    background-color: #404040;
-`;
+const RowInCell = styled.div`
+    display: flex;
+    justify-content: ${props => props.justifyContent ? props.justifyContent : 'flex-start'}
+`
 const CallWrapper = styled.div`
-    min-width: 140px;
-    min-height: 80px;
-    background-color: #1e1f21;
-    color:#DDDCDD;
+    background-color:${props => props.isWeekend ? '#272829' : '#1e1f21'}
 `
 
-function Calendar() {
-    // moment.updateLocale('en', {week: {dow:1}})
-    // const startDey = moment().startOf('month').startOf('week');
-    // const endDey = moment().endOf('month').endOf('week');   
-
-    // const calendar = [];
-    // const day = startDey.clone();
-    
-    // while (!day.isAfter(endDey)) {
-    //     calendar.push(day.clone())
-    //     day.add(1,'day')
-    // }
-    // console.log(calendar);
-
+function Calendar({startDay}) { 
     const totalday = 42;
-    const daysArray = [...Array(42)]
-
+    const day = startDay.clone().subtract(1, 'day');
+    const daysArray = [...Array(42)].map(() => day.add(1, 'day').clone())
+    console.log(daysArray)
     return (
-        <GridWrapper>
+        <div className='GridWrapper'>
             {
-                daysArray.map((_, index) => (
-                    <CallWrapper>{index}</CallWrapper>
+                daysArray.map((dayItem) => (
+                    <CallWrapper 
+                    className='CallWrapper' 
+                    key={dayItem.format('DD-MM-YYYY')}
+                    isWeekend={dayItem.day() === 6 || dayItem.day() === 0}
+                    >
+                        <RowInCell justifyContent={'flex-end'}>
+                            <div className='DayWrapper'>
+                                {dayItem.format('D')}
+                            </div>
+                        </RowInCell>
+                    </CallWrapper>
                 ))
             }
-        </GridWrapper>
+        </div>
     );
 }
 export default Calendar
