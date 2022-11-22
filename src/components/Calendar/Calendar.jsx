@@ -1,38 +1,25 @@
 import React from 'react'
 import moment from 'moment'
-import styled from 'styled-components';
+
+import CalendarTopBar from "./CalendarTopBar";
+import CalendarGrid from './CalendarGrid';
 import './Calendar.css'
+import CalendarTitle from './CalendarTitle';
 
-const RowInCell = styled.div`
-    display: flex;
-    justify-content: ${props => props.justifyContent ? props.justifyContent : 'flex-start'}
-`
-const CallWrapper = styled.div`
-    background-color:${props => props.isWeekend ? '#272829' : '#1e1f21'}
-`
+function Calendar() { 
+    // изменение на европейскую систему дней
+    moment.updateLocale('en', {week: {dow:1}})
 
-function Calendar({startDay}) { 
-    const totalday = 42;
-    const day = startDay.clone().subtract(1, 'day');
-    const daysArray = [...Array(42)].map(() => day.add(1, 'day').clone())
-    console.log(daysArray)
+    const today = moment()
+    const startDay = today.clone().startOf('month').startOf('week');
+    
+    // window.moment = moment;
+    
     return (
-        <div className='GridWrapper'>
-            {
-                daysArray.map((dayItem) => (
-                    <CallWrapper 
-                    className='CallWrapper' 
-                    key={dayItem.format('DD-MM-YYYY')}
-                    isWeekend={dayItem.day() === 6 || dayItem.day() === 0}
-                    >
-                        <RowInCell justifyContent={'flex-end'}>
-                            <div className='DayWrapper'>
-                                {dayItem.format('D')}
-                            </div>
-                        </RowInCell>
-                    </CallWrapper>
-                ))
-            }
+        <div className='Calendar'>
+            <CalendarTitle/>
+            <CalendarTopBar today={today}/>
+            <CalendarGrid startDay={startDay}/>
         </div>
     );
 }

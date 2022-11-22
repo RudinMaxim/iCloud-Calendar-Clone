@@ -1,20 +1,15 @@
+import './App.css'
 import Header from '../Header/Header'
-import Calendar from '../Calendar/Calendar'
-import moment from 'moment'
 import SideBar from '../SideBar/SideBar';
+import Calendar from '../Calendar/Calendar'
 
-function App() {
-  // изменение на европейскую систему дней
-  moment.updateLocale('en', {week: {dow:1}})
-  // определение начал месяца и конца
-  const startDay = moment().startOf('month').startOf('week');
-  // const endDay = moment().endOf('month').endOf('week');   
+function App() { 
 
   return (
-    <div className="App">
-      {/* <SideBar/> */}
-      {/* <Header/> */}
-      <Calendar startDay={startDay}/>
+    <div className="App ShadowWrapper">
+      {/* <SideBar/>
+      <Header/> */}
+      <Calendar/>
     </div>
   );
 }
