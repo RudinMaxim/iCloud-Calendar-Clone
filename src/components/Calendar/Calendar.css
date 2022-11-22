@@ -1,0 +1,49 @@
+/* CalendarGrid */
+.GridWrapper{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-gap:1px;
+    background-color: #404040;
+}
+.CallWrapper{
+    min-width: 120px;
+    min-height: 60px;
+    color:#DDDCDD;
+}
+.DayWrapper{
+    height: 33px;
+    width: 33px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* CalendarTopBar */
+.DivWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1e1f21;
+    color: #DDDCDD;
+    padding: 16px;
+}
+.ButtonWrapper > button{
+    border: unset;
+    background-color: #565759;
+    color: #DDDCDD;
+    height: 20px;
+    margin-right:2px;
+    border-radius: 4px;
+}
+.ButtonWrapper .ToDayBatton{
+    padding:0 16px;
+
+}
+
+/* CalendarTitle */
+
+.CalendarTitle{
+    background-color: #2a2b2d;
+    height: 36px;
+}
