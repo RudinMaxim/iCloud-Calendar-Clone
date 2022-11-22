@@ -1,9 +1,16 @@
 import React from 'react'
-import s from './Header.css'
+import {AppBar, Toolbar, Typography} from '@mui/material'
 
-function Header() {
+function Header(title) {
+  title = 'HOME'
   return (
-    <div>Header</div>
+    <AppBar>
+      <Toolbar>
+        <Typography>
+          {title}
+        </Typography>
+      </Toolbar>
+    </AppBar>
   )
 }
 
