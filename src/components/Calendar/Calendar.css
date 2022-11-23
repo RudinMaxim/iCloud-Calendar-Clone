@@ -52,6 +52,10 @@
 .ButtonWrapper .ToDayBatton{
     padding:0 16px;
 }
+.TextWrapper span{
+    font-size: 32px;
+    margin-right: 8px;
+}
 
 /* CalendarTitle */
 .CalendarTitle{

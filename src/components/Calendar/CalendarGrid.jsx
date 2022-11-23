@@ -14,20 +14,20 @@ const CallWrapper = styled.div`
 function CalendarGrid({startDay}) {
     const day = startDay.clone().subtract(1, 'day');
     const daysArray = [...Array(42)].map(() => day.add(1, 'day').clone());
-
     const isCurraentDAY = (day) => moment().isSame(day, 'day');
+
     return (
         <div className='GridWrapper'>
             {
                 daysArray.map((dayItem) => (
                     <CallWrapper 
                         className='CallWrapper'
-                        key={dayItem.format('DD-MM-YYYY')}
+                        key={dayItem.unix()}
                         isWeekend={dayItem.day() === 6 || dayItem.day() === 0}
                     >
                         <RowInCell justifyContent={'flex-end'}>
                             <div className='DayWrapper'>
-                                {isCurraentDAY(dayItem) ? <div className='CurraentDAY'>{dayItem.format('D')}</div>
+                                {isCurraentDAY(dayItem) ? <div className='CurraentDAY'>{dayItem.format('D')}</div> 
                                 : dayItem.format('D')}
                             </div>
                         </RowInCell>
