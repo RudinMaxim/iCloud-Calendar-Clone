@@ -5,10 +5,16 @@ import './Calendar.css'
 
 const RowInCell = styled.div`
     display: flex;
-    justify-content: ${props => props.justifyContent ? props.justifyContent : 'flex-start'}
+    justify-content: ${props => props.justifyContent ? props.justifyContent : 'flex-start'};
+    ${props => props.pr && `margin-right: ${props.pr * 8}px`}
+`
+const GridWrapper = styled.div`
+    background-color:${props => props.isHeader ? '#1e1f21' : '#404040'};
+    ${props => props.isHeader && 'border-bottom:1px solid #404040;'}
 `
 const CallWrapper = styled.div`
-    background-color:${props => props.isWeekend ? '#272829' : '#1e1f21'}
+    background-color:${props => props.isWeekend ? '#272829' : '#1e1f21'};
+    min-height: ${props => props.isHeader ? 24 : 80}px;
 `
 
 function CalendarGrid({startDay}) {
@@ -17,7 +23,17 @@ function CalendarGrid({startDay}) {
     const isCurraentDAY = (day) => moment().isSame(day, 'day');
 
     return (
-        <div className='GridWrapper'>
+        <>
+        <GridWrapper className='GridWrapper' isHeader>
+            {[...Array(7)].map((_, index) => (
+                <CallWrapper isHeader>
+                    <RowInCell justifyContent={'flex-end'} pr={1}>
+                        {moment().day(index + 1, ).format('dddd')}
+                    </RowInCell>
+                </CallWrapper>
+            ))}
+        </GridWrapper>
+        <GridWrapper className='GridWrapper'>
             {
                 daysArray.map((dayItem) => (
                     <CallWrapper 
@@ -34,7 +50,8 @@ function CalendarGrid({startDay}) {
                     </CallWrapper>
                 ))
             }
-        </div>
+        </GridWrapper>
+        </>
     );
 }
 export default CalendarGrid
