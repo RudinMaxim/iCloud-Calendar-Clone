@@ -26,9 +26,6 @@
     background-color: red;
     border-radius: 50%;
 }
-.CurraentDAY{
-    
-}
 
 /* CalendarTopBar */
 .DivWrapper{
@@ -50,12 +47,28 @@
     cursor: pointer;
 }
 .ButtonWrapper .ToDayBatton{
-    padding:0 16px;
+    padding: 4 8px;
 }
 .TextWrapper span{
     font-size: 32px;
     margin-right: 8px;
 }
+/* .Display_mode button{
+    border: none;
+    color: #DDDCDD;
+    background-color: #565759;
+    padding: 4px 8px;
+}
+.Display_mode button:last-child{
+    border-radius: 0px 8px 8px 0px;
+}
+.Display_mode button:first-child{
+    border-radius: 8px 0px 0px 8px;
+}
+.Display_mode .selected-day{
+    color: #565759;
+    background-color: #DDDCDD;
+} */
 
 /* CalendarTitle */
 .CalendarTitle{

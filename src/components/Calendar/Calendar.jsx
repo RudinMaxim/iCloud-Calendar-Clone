@@ -20,12 +20,15 @@ function Calendar() {
         <div className='Calendar'>
             <CalendarTitle/>
             <CalendarTopBar 
-            today={today}
-            prevHandler={prevHandler}
-            todayHandler={todayHandler}
-            nextHandler={nextHandler}
+                today={today}
+                prevHandler={prevHandler}
+                todayHandler={todayHandler}
+                nextHandler={nextHandler}
             />
-            <CalendarGrid startDay={startDay}/>
+            <CalendarGrid 
+                startDay={startDay} 
+                today={today}
+            />
         </div>
     );
 }
