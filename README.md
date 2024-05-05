@@ -1,11 +1,20 @@
-
 # iCloud calendar clone
+В директории проекта вы можете запустить:
+```npm start```
+Запускает приложение в режиме разработки.<br />
 
-In the project directory, you can run:
+[[here](myLib/README.md)](http://localhost:3000)
+Откройте http://localhost:3000, чтобы просмотреть его в браузере.
+npm run serve
+Запускает JSON-сервер на порту 3001.<br />
+Этот сервер используется для имитации бэкэнда и хранения данных календаря.
+Используемые библиотеки
 
-### `npm start`
+react - библиотека для создания пользовательского интерфейса
+react-dom - предоставляет методы для рендеринга React-компонентов в DOM
+styled-components - библиотека для стилизации компонентов с использованием CSS-in-JS
+moment - библиотека для работы с датами и временем
+json-server - фейковый REST API для имитации бэкэнда
+@testing-library/react - библиотека для модульного тестирования React-компонентов
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-Link to video [https://youtu.be/D6VPU846L1c](https://youtu.be/D6VPU846L1c)
+В файле package.json находятся зависимости проекта и скрипты для запуска приложения и сервера.
