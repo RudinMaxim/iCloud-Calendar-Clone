@@ -1,5 +1,5 @@
 
-# Calendar ios type
+# iCloud calendar clone
 
 In the project directory, you can run:
 
