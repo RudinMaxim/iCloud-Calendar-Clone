@@ -1,4 +1,6 @@
 # iCloud calendar clone
+
+скачайте локально репазиторий ```https://github.com/RudinMaxim/iCloud-Calendar-Clone.git```
 В директории проекта вы можете запустить:
 ```npm start```
 ```npm run serve```
